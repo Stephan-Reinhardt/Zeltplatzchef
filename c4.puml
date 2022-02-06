@@ -1,0 +1,26 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/go.puml
+!include DEVICONS/html5.puml
+!include DEVICONS/postgresql.puml
+!include FONTAWESOME/users.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(user, "Camper", "A person who needs a campsite", $sprite="users")
+Person(manager, "Campsite Manager", "A person who manages the campsite", $sprite="users")
+Container(frontend, "Camper Frontend", "Go Template Engine", "The main interface that the campers interacts with", $sprite="html5")
+Container(backoffice, "Backoffice", "Go Template Engine", "The main interface that the campsite managers interacts with", $sprite="html5")
+Container(api, "API", "java", "Handles all business logic", $sprite="go")
+ContainerDb(db, "Database", "PostgresQL", "Holds all data needed", $sprite="postgresql")
+
+Rel(user, frontend, "Uses", "https")
+Rel(manager, backoffice, "Uses", "https")
+Rel(frontend, api, "Uses", "https")
+Rel(backoffice, api, "Uses", "https")
+Rel_R(api, db, "Reads/Writes")
+@enduml
