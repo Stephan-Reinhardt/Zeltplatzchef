@@ -11,10 +11,10 @@
 
 LAYOUT_WITH_LEGEND()
 
-Person(user, "Camper", "A person who needs a campsite", $sprite="users")
-Person(manager, "Campsite Manager", "A person who manages the campsite", $sprite="users")
-Container(frontend, "Camper Frontend", "Go Template Engine", "The main interface that the campers interacts with", $sprite="html5")
-Container(backoffice, "Backoffice", "Go Template Engine", "The main interface that the campsite managers interacts with", $sprite="html5")
+Person(user, "User", "A person who needs something", $sprite="users")
+Person(manager, "Manager", "A person who manages the system", $sprite="users")
+Container(frontend, "Frontend", "Go Template Engine", "The main interface that the user interacts with", $sprite="html5")
+Container(backoffice, "Backoffice", "Go Template Engine", "The main interface that the managers interacts with", $sprite="html5")
 Container(api, "API", "java", "Handles all business logic", $sprite="go")
 ContainerDb(db, "Database", "PostgresQL", "Holds all data needed", $sprite="postgresql")
 

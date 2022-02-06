@@ -1,5 +1,9 @@
 # Zeltplatzchef
 
+## Architecture for the first iteration
+
+![C4 Model](http://www.plantuml.com/plantuml/png/hPDBRzf04CVlV8eDwe581H_QN2fL2WKdGU912HJrXCRUyQDTxxgUTL2_VMSN1pjAaTggf_NE_FVtPnxSaeNAreNgNUKwLhL4aLbRqeSWgE0uIdERrL5DMCL6MzHs59iYA1LezsP8Lgey2YRlXsiNsYtcGG5aiUBGOS8l8DTOZKh7xrr9JFWgfk6NsMIrVFm38rkN8AjthM7EsM72YY6LLMwHdlqaFhaSdLtkLiljU1y-hXRXVpNoCJWYcGA7D-UkdQiAGAUrWgRer-dKNCfajb0tbvAb8PjMI3_KIqMtpi1LHKstv-Elgztsi9zj7mxpy3vSJWVNlTwQ1KOFdF2jwE_uwFCv5gMFYsDcX4QK95nvDijrolatfnPyx7j-__gPKe26r8CM_kirwwGWOJCKz9Ci5h_3dHTba5H-9f8vTysdOzuRiSMYL61HX3fbgOjk6LhmEv6pi4eWHlO1wyqS-XI7s98uyj2xphxLBvmZYB-R9CbZPFAdy-NVt9l6q5_z0YXprxxrpD6_mHEuym6qL4W2b1Ayj2ma4igaUTo5fQPBcaO36V7RALY8WD1nritwV9vxgb7on9IiyHD7sGMssyRWtWPLip7jVDpka6Fv_nQhMDGkHDlD2yeMn6LVq7GWbrM7pQbnlk8DWgHWxsfmwLisg0lr2m00)
+
 start:
 ```shell
 go run zeltplatzchef.go
@@ -8,12 +12,3 @@ Build
 ```shell
 go build -o bin/zeltplatzchef -v .
 ```
-
-
-Install Postgres Driver
-
-```shell
-go get github.com/jmoiron/sqlx
-go get -u github.com/lib/pq
-```
-

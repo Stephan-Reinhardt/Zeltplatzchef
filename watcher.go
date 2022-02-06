@@ -47,25 +47,21 @@ func GetWatcher() ([]*Watcher, error) {
 	return watchers, nil
 }
 
-func NotifyMeHandler() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if err := r.ParseForm(); err != nil {
-			fmt.Println(fmt.Errorf("Error: %v", err))
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
-		watcher := Watcher{}
-		watcher.Email = r.Form.Get("email")
-		watcher.Created = time.Now().UTC()
+func NotifyMeHandler(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		fmt.Println(fmt.Errorf("Error: %v", err))
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	watcher := Watcher{}
+	watcher.Email = r.Form.Get("email")
+	watcher.Created = time.Now().UTC()
 
-		dbErr := CreateWatcher(&watcher)
-		if dbErr != nil {
-			fmt.Println(dbErr)
-		}
-
-		//Redirect to the originating HTML page
-		http.Redirect(w, r, "/", http.StatusFound)
-	})
+	dbErr := CreateWatcher(&watcher)
+	if dbErr != nil {
+		fmt.Println(dbErr)
+	}
+	http.Redirect(w, r, "/", http.StatusFound)
 }
 
 func CreateWatcherTable(db *sql.DB) error {
